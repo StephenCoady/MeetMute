@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #1a73e8;
+      margin-bottom: 5px;
+    }
+    
+    .tagline {
+      color: #5f6368;
+      font-size: 12px;
+    }
+    
+    .section {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #202124;
+      font-size: 14px;
+    }
+    
+    .shortcut-display {
+      background: #e8f0fe;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      padding: 8px 12px;
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      color: #1a73e8;
+      margin-bottom: 8px;
+    }
+    
+    .info-text {
+      font-size: 12px;
+      color: #5f6368;
+      line-height: 1.4;
+    }
+    
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34a853;
+    }
+    
+    .status-indicator.inactive {
+      background: #ea4335;
+    }
+    
+    .test-button {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 12px;
+      width: 100%;
+      margin-top: 8px;
+    }
+    
+    .test-button:hover {
+      background: #1557b0;
+    }
+    
+    .test-button:disabled {
+      background: #dadce0;
+      cursor: not-allowed;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 16px;
+    }
+    
+    .footer a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 12px;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🎤 MeetMute</div>
+    <div class="tagline">Quick microphone toggle for Google Meet</div>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">Keyboard Shortcut</div>
+    <div class="shortcut-display" id="shortcut-display">
+      Loading...
+    </div>
+    <div class="info-text">
+      Works when Chrome is active. To change the shortcut, go to Chrome Extensions → Keyboard shortcuts.
+    </div>
+    <button class="test-button" id="test-button">Test Shortcut</button>
+    <button class="test-button" id="sync-button" style="background: #ea4335; margin-top: 4px;">Sync Icon State</button>
+    <div class="info-text" style="margin-top: 4px; font-size: 11px;">
+      Use "Sync" if the toolbar icon doesn't match your actual mute state.
+    </div>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">Status</div>
+    <div class="status">
+      <div class="status-indicator" id="status-indicator"></div>
+      <span id="status-text">Checking Google Meet tabs...</span>
+    </div>
+    <div class="info-text" style="margin-top: 8px;">
+      Extension is active when you're in a Google Meet call.
+    </div>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">How to Use</div>
+    <div class="info-text">
+      1. Join a Google Meet call<br>
+      2. Use the keyboard shortcut to toggle mute<br>
+      3. Works from any Chrome tab or window
+    </div>
+  </div>
+  
+  <div class="footer">
+    <a href="#" id="shortcuts-link">Configure Keyboard Shortcuts</a>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
